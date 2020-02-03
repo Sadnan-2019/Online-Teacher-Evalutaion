@@ -1,0 +1,75 @@
+
+
+.container{
+
+
+    background-color:#636a71;
+
+
+
+}
+
+
+
+h1{
+
+
+
+
+    text-align: center;
+}
+body{
+
+
+
+
+
+    height: 150%;
+    width:100%;
+
+}
+a{
+
+
+    width:120%;
+
+
+    text-decoration: none;
+    font-size:20px;
+    text-align: center;
+    padding:10%;
+    border-radius:10%;
+    font-weight: bold;
+    color:aqua;
+
+
+
+
+}
+ul{
+
+
+
+
+
+    padding: 0;
+    margin:0;
+    position: absolute;
+
+
+}
+.nav{
+    width:49.5%;
+
+    height:6%;
+
+    margin-left:25%;
+
+
+
+
+
+
+
+
+}

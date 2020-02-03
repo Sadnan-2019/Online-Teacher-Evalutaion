@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="evaluation@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="evaluation">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="eiser"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="notice"/>
+    <schema id="7" parent="1" name="online_admission_test"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="phpmyadmin"/>
+    <schema id="10" parent="1" name="test"/>
+    <table id="11" parent="2" name="admin"/>
+    <table id="12" parent="2" name="closesurvay"/>
+    <table id="13" parent="2" name="course"/>
+    <table id="14" parent="2" name="coursereg"/>
+    <table id="15" parent="2" name="courseteacher"/>
+    <table id="16" parent="2" name="department"/>
+    <table id="17" parent="2" name="opensurvay"/>
+    <table id="18" parent="2" name="questions"/>
+    <table id="19" parent="2" name="questionset"/>
+    <table id="20" parent="2" name="student"/>
+    <table id="21" parent="2" name="teacher"/>
+    <column id="22" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="11" name="adminid">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="11" name="password">
+      <Position>3</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="adminname">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="26" parent="11" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="12" name="Id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="12" name="crid">
+      <Position>2</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="29" parent="12" name="qid">
+      <Position>3</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="30" parent="12" name="qresponse">
+      <Position>4</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <key id="31" parent="12" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="13" name="courseid">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="13" name="coursetitle">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="34" parent="13" name="coursecredit">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="35" parent="13" name="deptcode">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <index id="36" parent="13" name="course_courseid_uindex">
+      <ColNames>courseid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="37" parent="13" name="course_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+    </index>
+    <key id="38" parent="13" name="PRIMARY">
+      <ColNames>courseid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="39" parent="13" name="course_courseid_uindex">
+      <ColNames>courseid</ColNames>
+      <UnderlyingIndexName>course_courseid_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="40" parent="13" name="course_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deptcode</RefColNames>
+    </foreign-key>
+    <column id="41" parent="14" name="crid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="14" name="evaluationstatus">
+      <Position>2</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="43" parent="14" name="cid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="44" parent="14" name="stdid">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="45" parent="14" name="deptcode">
+      <Position>5</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="46" parent="14" name="qSetId">
+      <Position>6</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="47" parent="14" name="status">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <index id="48" parent="14" name="cid">
+      <ColNames>cid</ColNames>
+    </index>
+    <index id="49" parent="14" name="coursereg_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+    </index>
+    <index id="50" parent="14" name="qSetId">
+      <ColNames>qSetId</ColNames>
+    </index>
+    <index id="51" parent="14" name="stdid">
+      <ColNames>stdid</ColNames>
+    </index>
+    <key id="52" parent="14" name="PRIMARY">
+      <ColNames>crid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="53" parent="14" name="coursereg_ibfk_1">
+      <ColNames>cid</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>courseteacher</RefTableName>
+      <RefColNames>cid</RefColNames>
+    </foreign-key>
+    <foreign-key id="54" parent="14" name="coursereg_ibfk_2">
+      <ColNames>stdid</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>student</RefTableName>
+      <RefColNames>studentid</RefColNames>
+    </foreign-key>
+    <foreign-key id="55" parent="14" name="coursereg_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deptcode</RefColNames>
+    </foreign-key>
+    <foreign-key id="56" parent="14" name="coursereg_ibfk_3">
+      <ColNames>qSetId</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>questionset</RefTableName>
+      <RefColNames>quesSetId</RefColNames>
+    </foreign-key>
+    <column id="57" parent="15" name="cid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="15" name="coursepart">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="59" parent="15" name="year">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="60" parent="15" name="semester">
+      <Position>4</Position>
+      <DataType>varchar(7)|0</DataType>
+    </column>
+    <column id="61" parent="15" name="enablestatus">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="62" parent="15" name="teacherID">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="63" parent="15" name="courseid">
+      <Position>7</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="64" parent="15" name="deptcode">
+      <Position>8</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <index id="65" parent="15" name="courseteacher_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+    </index>
+    <index id="66" parent="15" name="subjectid">
+      <ColNames>courseid</ColNames>
+    </index>
+    <index id="67" parent="15" name="teacherID">
+      <ColNames>teacherID</ColNames>
+    </index>
+    <key id="68" parent="15" name="PRIMARY">
+      <ColNames>cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="15" name="courseteacher_ibfk_2">
+      <ColNames>teacherID</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>teacher</RefTableName>
+      <RefColNames>teacherid</RefColNames>
+    </foreign-key>
+    <foreign-key id="70" parent="15" name="courseteacher_ibfk_3">
+      <ColNames>courseid</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>course</RefTableName>
+      <RefColNames>courseid</RefColNames>
+    </foreign-key>
+    <foreign-key id="71" parent="15" name="courseteacher_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deptcode</RefColNames>
+    </foreign-key>
+    <column id="72" parent="16" name="deptcode">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="16" name="deptname">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="74" parent="16" name="PRIMARY">
+      <ColNames>deptcode</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="17" name="crid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="17" name="qset">
+      <Position>2</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="77" parent="17" name="qid">
+      <Position>3</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="78" parent="17" name="openanswer">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="79" parent="17" name="PRIMARY">
+      <ColNames>crid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="80" parent="18" name="QuestionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="81" parent="18" name="questionDescription">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="18" name="qSet">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+    </column>
+    <column id="83" parent="18" name="option1">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="84" parent="18" name="option2">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="85" parent="18" name="option3">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="86" parent="18" name="option4">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="87" parent="18" name="option5">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <index id="88" parent="18" name="qSet">
+      <ColNames>qSet</ColNames>
+    </index>
+    <key id="89" parent="18" name="PRIMARY">
+      <ColNames>QuestionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="90" parent="18" name="questions_ibfk_1">
+      <ColNames>qSet</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>questionset</RefTableName>
+      <RefColNames>quesSetId</RefColNames>
+    </foreign-key>
+    <column id="91" parent="19" name="quesSetId">
+      <Position>1</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="92" parent="19" name="details">
+      <Position>2</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="93" parent="19" name="PRIMARY">
+      <ColNames>quesSetId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="94" parent="20" name="studentid">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="20" name="password">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="96" parent="20" name="studentname">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="97" parent="20" name="email">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="98" parent="20" name="studentstatus">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="99" parent="20" name="programcode">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="100" parent="20" name="deptcode">
+      <Position>7</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <index id="101" parent="20" name="student_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+    </index>
+    <key id="102" parent="20" name="PRIMARY">
+      <ColNames>studentid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="103" parent="20" name="student_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deptcode</RefColNames>
+    </foreign-key>
+    <column id="104" parent="21" name="teacherid">
+      <Position>1</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="21" name="password">
+      <Position>2</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="106" parent="21" name="teachername">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="107" parent="21" name="email">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="108" parent="21" name="teacherstatus">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="109" parent="21" name="deptcode">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <index id="110" parent="21" name="teacher_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+    </index>
+    <key id="111" parent="21" name="PRIMARY">
+      <ColNames>teacherid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="112" parent="21" name="teacher_department_deptcode_fk">
+      <ColNames>deptcode</ColNames>
+      <RefSchemaName>evaluation</RefSchemaName>
+      <RefTableName>department</RefTableName>
+      <RefColNames>deptcode</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
